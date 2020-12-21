@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>New Vehicle</title>
+</head>
+<body>
+	<form action="/vehicles" method="POST">
+		<div>
+			<label for="name">Name</label>
+			<input type="text" id="name" name="vehicle[name]">
+		</div>
+		<div>
+			<label for="location">Location</label>
+			<input type="text" id="location" name="vehicle[location]">
+		</div>
+		<button>Add Vehicle</button>
+	</form>
+	<div>
+		<a href="/vehicles">All Vehicles</a>
+	</div>
+</body>
+</html>
