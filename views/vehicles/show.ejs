@@ -1,23 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Vehicle Show Page</title>
-</head>
-<body>
-	<h1><%= vehicle.name %></h1>
-	<h2><%= vehicle.location %></h2>
-	<p>
-		<a href="/vehicles/<%=vehicle._id%>/edit">Edit</a>
-	</p>
-	<p>
-		<form action="/vehicles/<%=vehicle._id%>?_method=DELETE" method="POST">
-			<button>Delete</button>
-		</form>
-	</p>
-	<div>
-		<a href="/vehicles">All Vehicles</a>
-	</div>
-</body>
-</html>
+<% layout('layouts/boilerplate') %>
+<h1><%= vehicle.name %></h1>
+<h2><%= vehicle.location %></h2>
+<p>
+	<a href="/vehicles/<%=vehicle._id%>/edit">Edit</a>
+</p>
+<p>
+	<form action="/vehicles/<%=vehicle._id%>?_method=DELETE" method="POST">
+		<button>Delete</button>
+	</form>
+</p>
+<div>
+	<a href="/vehicles">All Vehicles</a>
+</div>
