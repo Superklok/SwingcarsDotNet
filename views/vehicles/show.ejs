@@ -1,6 +1,8 @@
 <% layout('layouts/boilerplate') %>
 <h1><%= vehicle.name %></h1>
 <h2><%= vehicle.location %></h2>
+<img src="<%= vehicle.image %>" alt="">
+<p><%= vehicle.description %></p>
 <p>
 	<a href="/vehicles/<%=vehicle._id%>/edit">Edit</a>
 </p>

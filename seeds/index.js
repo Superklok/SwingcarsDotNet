@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const {makes, models} = require('./vehicleNames');
+const {descriptions} = require('./vehicleDescriptions');
 const vehicleLocations = require('./vehicleLocations');
 const Vehicle = require('../models/vehicle');
 
@@ -21,9 +22,13 @@ const seedDB = async () => {
 	await Vehicle.deleteMany({});
 	for (let i = 0; i < 14; i++) {
 		const random14 = Math.floor(Math.random() * 14);
+		const price = Math.floor(Math.random() * 10) + 10;
 		const vehicle = new Vehicle({
 			name: `${sample(makes)} ${sample(models)}`,
-			location: `${vehicleLocations[random14].city}, ${vehicleLocations[random14].province}`
+			location: `${vehicleLocations[random14].city}, ${vehicleLocations[random14].province}`,
+			image: 'https://source.unsplash.com/collection/430968',
+			description: `${sample(descriptions)}`,
+			price
 		})
 		await vehicle.save();
 	}

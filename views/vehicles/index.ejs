@@ -3,8 +3,22 @@
 <div>
 	<a href="/vehicles/new">Add Vehicle</a>
 </div>
-<ul>
-	<% for (let vehicle of vehicles){ %>
-		<li><a href="/vehicles/<%= vehicle._id %>"><%= vehicle.name %></a></li></li>
-	<% } %>
-</ul>
+<% for (let vehicle of vehicles){ %>
+	<div class="card mb-3">
+		<div class="row">
+			<div class="col-md-4">
+				<img class="img-fluid" alt="" src="<%= vehicle.image %>">
+			</div>
+			<div class="col-md-8">
+				<div class="card-body">
+					<h5 class="card-title"><%= vehicle.name %></h5>
+					<p class="card-text"><%= vehicle.description %></p>
+					<p class="card-text">
+						<small class="text-muted"><%= vehicle.location %></small>		
+					</p>
+					<a class="btn btn-info" href="/vehicles/<%= vehicle._id %>">View <%= vehicle.name %></a>
+				</div>
+			</div>
+		</div>
+	</div>
+<% } %>
