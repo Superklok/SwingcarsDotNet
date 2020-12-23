@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
+const {vehicleSchema} = require('./schemas.js');
+const catchAsync = require('./HELPeR/catchAsync');
+const ExpressError = require('./HELPeR/ExpressError');
 const methodOverride = require('method-override');
 const Vehicle = require('./models/vehicle');
 
@@ -26,45 +29,65 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
+const validateVehicle = (req, res, next) => {
+	const {error} = vehicleSchema.validate(req.body);
+	if(error){
+		const msg = error.details.map(el => el.message).join(',')
+		throw new ExpressError(msg, 400)
+	} else {
+		next();
+	}
+}
+
 app.get('/', (req, res) => {
 	res.render('home')
 });
 
-app.get('/vehicles', async (req, res) => {
+app.get('/vehicles', catchAsync(async (req, res) => {
 	const vehicles = await Vehicle.find({});
 	res.render('vehicles/index', {vehicles})
-});
+}));
 
 app.get('/vehicles/new', (req, res) => {
 	res.render('vehicles/new');
 });
 
-app.post('/vehicles', async (req, res) => {
+app.post('/vehicles', validateVehicle, catchAsync(async (req, res, next) => {
 	const vehicle = new Vehicle(req.body.vehicle);
 	await vehicle.save();
 	res.redirect(`/vehicles/${vehicle._id}`)
-});
+}));
 
-app.get('/vehicles/:id', async(req, res) => {
+app.get('/vehicles/:id', catchAsync(async(req, res) => {
 	const vehicle = await Vehicle.findById(req.params.id)
 	res.render('vehicles/show', {vehicle});
-});
+}));
 
-app.get('/vehicles/:id/edit', async (req, res) => {
+app.get('/vehicles/:id/edit', catchAsync(async (req, res) => {
 	const vehicle = await Vehicle.findById(req.params.id)
 	res.render('vehicles/edit', {vehicle});
-});
+}));
 
-app.put('/vehicles/:id', async (req, res) => {
+app.put('/vehicles/:id', validateVehicle, catchAsync(async (req, res) => {
 	const {id} = req.params;
 	const vehicle = await Vehicle.findByIdAndUpdate(id, {...req.body.vehicle});
 	res.redirect(`/vehicles/${vehicle._id}`)
-});
+}));
 
-app.delete('/vehicles/:id', async (req, res) => {
+app.delete('/vehicles/:id', catchAsync(async (req, res) => {
 	const {id} = req.params;
 	await Vehicle.findByIdAndDelete(id);
 	res.redirect('/vehicles');
+}));
+
+app.all('*', (req, res, next) => {
+	next(new ExpressError('Page Not Found', 404))
+});
+
+app.use((err, req, res, next) => {
+	const {statusCode = 500} = err;
+	if (!err.message) err.message = 'Oh no! Something went wrong!'
+	res.status(statusCode).render('error', {err});
 });
 
 app.listen(3000, ()=> {
