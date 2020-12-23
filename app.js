@@ -2,11 +2,12 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
-const {vehicleSchema} = require('./schemas.js');
+const {vehicleSchema, reviewSchema} = require('./schemas.js');
 const catchAsync = require('./HELPeR/catchAsync');
 const ExpressError = require('./HELPeR/ExpressError');
 const methodOverride = require('method-override');
 const Vehicle = require('./models/vehicle');
+const Review = require('./models/review');
 
 mongoose.connect('mongodb://localhost:27017/swingcarsdotnet', {
 	useNewUrlParser: true,
@@ -39,6 +40,16 @@ const validateVehicle = (req, res, next) => {
 	}
 }
 
+const validateReview = (req, res, next) => {
+	const {error} = reviewSchema.validate(req.body);
+	if(error){
+		const msg = error.details.map(el => el.message).join(',')
+		throw new ExpressError(msg, 400)
+	} else {
+		next();
+	}
+}
+
 app.get('/', (req, res) => {
 	res.render('home')
 });
@@ -59,7 +70,7 @@ app.post('/vehicles', validateVehicle, catchAsync(async (req, res, next) => {
 }));
 
 app.get('/vehicles/:id', catchAsync(async(req, res) => {
-	const vehicle = await Vehicle.findById(req.params.id)
+	const vehicle = await Vehicle.findById(req.params.id).populate('reviews');
 	res.render('vehicles/show', {vehicle});
 }));
 
@@ -78,6 +89,22 @@ app.delete('/vehicles/:id', catchAsync(async (req, res) => {
 	const {id} = req.params;
 	await Vehicle.findByIdAndDelete(id);
 	res.redirect('/vehicles');
+}));
+
+app.post('/vehicles/:id/reviews', validateReview, catchAsync(async (req, res) => {
+	const vehicle = await Vehicle.findById(req.params.id);
+	const review = new Review(req.body.review);
+	vehicle.reviews.push(review);
+	await review.save();
+	await vehicle.save();
+	res.redirect(`/vehicles/${vehicle._id}`);
+}));
+
+app.delete('/vehicles/:id/reviews/:reviewId', catchAsync(async (req, res) => {
+	const {id, reviewId} = req.params;
+	await Vehicle.findByIdAndUpdate(id, {$pull: {reviews: reviewId}});
+	await Review.findByIdAndDelete(reviewId);
+	res.redirect(`/vehicles/${id}`);
 }));
 
 app.all('*', (req, res, next) => {
