@@ -1,12 +1,16 @@
 {
   "name": "swingcarsdotnet",
-  "version": "1.0.0",
-  "description": "swingcars.net",
+  "version": "1.2.1",
+  "description": "Swingcars (English)",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Trev Morin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trevmorin/SwingcarsDotNet.git"
+  },
+  "author": "Trev Morin <trev@superklok.com> (https://trevmorin.com)",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.5",
