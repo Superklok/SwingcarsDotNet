@@ -2,17 +2,18 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
-const {vehicleSchema, reviewSchema} = require('./schemas.js');
-const catchAsync = require('./HELPeR/catchAsync');
+const session = require('express-session');
+const flash = require('connect-flash');
 const ExpressError = require('./HELPeR/ExpressError');
 const methodOverride = require('method-override');
-const Vehicle = require('./models/vehicle');
-const Review = require('./models/review');
+const vehicles = require('./routes/vehicles');
+const reviews = require('./routes/reviews');
 
 mongoose.connect('mongodb://localhost:27017/swingcarsdotnet', {
 	useNewUrlParser: true,
 	useCreateIndex: true,
-	useUnifiedTopology: true
+	useUnifiedTopology: true,
+	useFindAndModify: false
 });
 
 const db = mongoose.connection;
@@ -29,83 +30,33 @@ app.set('views', path.join(__dirname, 'views'))
 
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
+app.use(express.static(path.join(__dirname, 'public')))
 
-const validateVehicle = (req, res, next) => {
-	const {error} = vehicleSchema.validate(req.body);
-	if(error){
-		const msg = error.details.map(el => el.message).join(',')
-		throw new ExpressError(msg, 400)
-	} else {
-		next();
+const sessionConfig = {
+	secret: 'tellEveryoneYouKnowThatThisSecretIsForDevelopmentONLY',
+	resave: false,
+	saveUninitialized: true,
+	cookie: {
+		httpOnly: true,
+		expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+		maxAge: 1000 * 60 * 60 * 24 * 7
 	}
 }
+app.use(session(sessionConfig))
+app.use(flash());
 
-const validateReview = (req, res, next) => {
-	const {error} = reviewSchema.validate(req.body);
-	if(error){
-		const msg = error.details.map(el => el.message).join(',')
-		throw new ExpressError(msg, 400)
-	} else {
-		next();
-	}
-}
+app.use((req, res, next) => {
+	res.locals.success = req.flash('success');
+	res.locals.error = req.flash('error');
+	next();
+})
+
+app.use('/vehicles', vehicles)
+app.use('/vehicles/:id/reviews', reviews)
 
 app.get('/', (req, res) => {
 	res.render('home')
 });
-
-app.get('/vehicles', catchAsync(async (req, res) => {
-	const vehicles = await Vehicle.find({});
-	res.render('vehicles/index', {vehicles})
-}));
-
-app.get('/vehicles/new', (req, res) => {
-	res.render('vehicles/new');
-});
-
-app.post('/vehicles', validateVehicle, catchAsync(async (req, res, next) => {
-	const vehicle = new Vehicle(req.body.vehicle);
-	await vehicle.save();
-	res.redirect(`/vehicles/${vehicle._id}`)
-}));
-
-app.get('/vehicles/:id', catchAsync(async(req, res) => {
-	const vehicle = await Vehicle.findById(req.params.id).populate('reviews');
-	res.render('vehicles/show', {vehicle});
-}));
-
-app.get('/vehicles/:id/edit', catchAsync(async (req, res) => {
-	const vehicle = await Vehicle.findById(req.params.id)
-	res.render('vehicles/edit', {vehicle});
-}));
-
-app.put('/vehicles/:id', validateVehicle, catchAsync(async (req, res) => {
-	const {id} = req.params;
-	const vehicle = await Vehicle.findByIdAndUpdate(id, {...req.body.vehicle});
-	res.redirect(`/vehicles/${vehicle._id}`)
-}));
-
-app.delete('/vehicles/:id', catchAsync(async (req, res) => {
-	const {id} = req.params;
-	await Vehicle.findByIdAndDelete(id);
-	res.redirect('/vehicles');
-}));
-
-app.post('/vehicles/:id/reviews', validateReview, catchAsync(async (req, res) => {
-	const vehicle = await Vehicle.findById(req.params.id);
-	const review = new Review(req.body.review);
-	vehicle.reviews.push(review);
-	await review.save();
-	await vehicle.save();
-	res.redirect(`/vehicles/${vehicle._id}`);
-}));
-
-app.delete('/vehicles/:id/reviews/:reviewId', catchAsync(async (req, res) => {
-	const {id, reviewId} = req.params;
-	await Vehicle.findByIdAndUpdate(id, {$pull: {reviews: reviewId}});
-	await Review.findByIdAndDelete(reviewId);
-	res.redirect(`/vehicles/${id}`);
-}));
 
 app.all('*', (req, res, next) => {
 	next(new ExpressError('Page Not Found', 404))
