@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const catchAsync = require('../HELPeR/catchAsync');
 const {vehicleSchema} = require('../schemas.js');
+const {isLoggedIn} = require('../middleware');
 const ExpressError = require('../HELPeR/ExpressError');
 const Vehicle = require('../models/vehicle');
 
@@ -20,11 +21,11 @@ router.get('/', catchAsync(async (req, res) => {
 	res.render('vehicles/index', {vehicles})
 }));
 
-router.get('/new', (req, res) => {
+router.get('/new', isLoggedIn, (req, res) => {
 	res.render('vehicles/new');
 });
 
-router.post('/', validateVehicle, catchAsync(async (req, res, next) => {
+router.post('/', isLoggedIn, validateVehicle, catchAsync(async (req, res, next) => {
 	const vehicle = new Vehicle(req.body.vehicle);
 	await vehicle.save();
 	req.flash('success', 'Successfully listed a new vehicle!');
@@ -40,7 +41,7 @@ router.get('/:id', catchAsync(async(req, res) => {
 	res.render('vehicles/show', {vehicle});
 }));
 
-router.get('/:id/edit', catchAsync(async (req, res) => {
+router.get('/:id/edit', isLoggedIn, catchAsync(async (req, res) => {
 	const vehicle = await Vehicle.findById(req.params.id)
 	if(!vehicle){
 		req.flash('error', 'Unable to find that vehicle!');
@@ -49,14 +50,14 @@ router.get('/:id/edit', catchAsync(async (req, res) => {
 	res.render('vehicles/edit', {vehicle});
 }));
 
-router.put('/:id', validateVehicle, catchAsync(async (req, res) => {
+router.put('/:id', isLoggedIn, validateVehicle, catchAsync(async (req, res) => {
 	const {id} = req.params;
 	const vehicle = await Vehicle.findByIdAndUpdate(id, {...req.body.vehicle});
 	req.flash('success', 'Successfully updated vehicle!');
 	res.redirect(`/vehicles/${vehicle._id}`)
 }));
 
-router.delete('/:id', catchAsync(async (req, res) => {
+router.delete('/:id', isLoggedIn, catchAsync(async (req, res) => {
 	const {id} = req.params;
 	await Vehicle.findByIdAndDelete(id);
 	req.flash('success', 'Vehicle successfully deleted!');
