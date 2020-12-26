@@ -24,6 +24,7 @@ const seedDB = async () => {
 		const random14 = Math.floor(Math.random() * 14);
 		const price = Math.floor(Math.random() * 10) + 10;
 		const vehicle = new Vehicle({
+			motorist: '5fe5086e09768541ec5756a4',
 			name: `${sample(makes)} ${sample(models)}`,
 			location: `${vehicleLocations[random14].city}, ${vehicleLocations[random14].province}`,
 			image: 'https://source.unsplash.com/collection/430968',

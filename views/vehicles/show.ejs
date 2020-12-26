@@ -5,24 +5,28 @@
 			<img src="<%= vehicle.image %>" class="card-img-top" alt="...">
 			<div class="card-body">
 				<h5 class="card-title"><%= vehicle.name %></h5>
+				<p class="card-text"><i><%= vehicle.motorist.username %> posted this vehicle</i></p>
 				<p class="card-text"><%= vehicle.description %></p>
 			</div>
 			<ul class="list-group list-group-flush">
 				<li class="list-group-item text-muted"><%= vehicle.location %></li>
 				<li class="list-group-item">CA$<%= vehicle.price %>/Ride</li>
 			</ul>
+			<% if (currentUser && vehicle.motorist.equals(currentUser._id)) { %>
 			<div class="card-body">
 				<a class="card-link btn btn-info" href="/vehicles/<%=vehicle._id%>/edit">Edit</a>
 				<form class="d-inline" action="/vehicles/<%=vehicle._id%>?_method=DELETE" method="POST">
 					<button class="btn btn-info">Delete</button>
 				</form>
 			</div>
+			<% } %>
 			<div class="card-footer">
 				<a class="btn btn-info" href="/vehicles">All Vehicles</a>
 			</div>
 		</div>
 	</div>
 	<div class="col-6">
+		<% if (currentUser) { %>
 		<h2>Leave Your Review</h2>
 		<form action="/vehicles/<%=vehicle._id%>/reviews" method="POST" class="mb-3 validateForm" novalidate>
 			<div class="mb-3">
@@ -38,14 +42,17 @@
 			</div>
 			<button class="btn btn-info">Submit</button>
 		</form>
+		<% } %>
 		<% for(let review of vehicle.reviews) { %>
 		<div class="card mb-3">
 			<div class="card-body">
 				<h5 class="card-title">Rating: <%= review.rating %></h5>
-				<p class="card-text">Review: <%= review.body %></p>
+				<p class="card-text"><%= review.motorist.username %> said "<%= review.body %>"</p>
+				<% if (currentUser && review.motorist.equals(currentUser._id)) { %>
 				<form action="/vehicles/<%=vehicle._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
 					<button class="btn btn-sm btn-info">Delete</button>
 				</form>
+				<% } %>
 			</div>
 		</div>
 		<% } %>
