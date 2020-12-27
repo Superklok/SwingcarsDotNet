@@ -1,0 +1,67 @@
+const Vehicle = require('../models/vehicle');
+const { cloudinary } = require('../cloudinary');
+
+module.exports.index = async (req, res) => {
+	const vehicles = await Vehicle.find({});
+	res.render('vehicles/index', { vehicles });
+}
+
+module.exports.renderNewForm = (req, res) => {
+	res.render('vehicles/new');
+}
+
+module.exports.createVehicle = async (req, res, next) => {
+	const vehicle = new Vehicle(req.body.vehicle);
+	vehicle.images = req.files.map(f => ({ url: f.path, filename: f.filename }));
+	vehicle.motorist = req.user._id;
+	await vehicle.save();
+	req.flash('success', 'Successfully listed a new vehicle!');
+	res.redirect(`/vehicles/${ vehicle._id }`);
+}
+
+module.exports.showVehicle = async(req, res) => {
+	const vehicle = await Vehicle.findById(req.params.id).populate({
+		path: 'reviews',
+		populate: {
+			path: 'motorist'
+		}
+	}).populate('motorist');
+	if (!vehicle) {
+		req.flash('error', 'Unable to find that vehicle!');
+		return res.redirect('/vehicles');
+	}
+	res.render('vehicles/show', { vehicle });
+}
+
+module.exports.renderEditForm = async (req, res) => {
+	const { id } = req.params;
+	const vehicle = await Vehicle.findById(id)
+	if (!vehicle) {
+		req.flash('error', 'Unable to find that vehicle!');
+		return res.redirect('/vehicles');
+	}
+	res.render('vehicles/edit', { vehicle });
+}
+
+module.exports.updateVehicle = async (req, res) => {
+	const { id } = req.params;
+	const vehicle = await Vehicle.findByIdAndUpdate(id, { ...req.body.vehicle });
+	const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
+	vehicle.images.push(...imgs);
+	await vehicle.save();
+	if (req.body.destroyImg) {
+		for (let filename of req.body.destroyImg) {
+			await cloudinary.uploader.destroy(filename);
+		}
+		await vehicle.updateOne({ $pull: { images: { filename: { $in: req.body.destroyImg } } } });
+	}
+	req.flash('success', 'Vehicle updated successfully!');
+	res.redirect(`/vehicles/${ vehicle._id }`);
+}
+
+module.exports.destroyVehicle = async (req, res) => {
+	const { id } = req.params;
+	await Vehicle.findByIdAndDelete(id);
+	req.flash('success', 'Vehicle deleted successfully!');
+	res.redirect('/vehicles');
+}
