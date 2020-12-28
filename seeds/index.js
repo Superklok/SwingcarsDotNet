@@ -22,7 +22,7 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 
 const seedDB = async () => {
 	await Vehicle.deleteMany({});
-	for (let i = 0; i < 50; i++) {
+	for (let i = 0; i < 300; i++) {
 		const random14 = Math.floor(Math.random() * 14);
 		const random30Img1 = Math.floor(Math.random() * 30);
 		const random30Img2 = Math.floor(Math.random() * 30);
@@ -36,7 +36,10 @@ const seedDB = async () => {
 			price,
 			geometry: {
 				type: 'Point',
-				coordinates: [Number(`${ vehicleLocations[random14].longitude }`), Number(`${ vehicleLocations[random14].latitude }`)]
+				coordinates: [
+					vehicleLocations[random14].longitude,
+					vehicleLocations[random14].latitude
+				]
 			},
 			images: [
 				{

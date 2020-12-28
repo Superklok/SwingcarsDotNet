@@ -11,6 +11,8 @@ ImageSchema.virtual('thumbnail').get(function () {
 	return this.url.replace('/upload', '/upload/w_200');
 });
 
+const opts = { toJSON: { virtuals: true } };
+
 const VehicleSchema = new Schema({
 	name: String,
 	images: [ImageSchema],
@@ -38,6 +40,12 @@ const VehicleSchema = new Schema({
 			ref: 'Review'
 		}
 	]
+}, opts);
+
+VehicleSchema.virtual('properties.clusterPopUp').get(function () {
+	return `
+	<strong><a href="/vehicles/${ this._id }">${ this.name }</a></strong>
+	<p>${ this.description.substring(0, 30) }...</p>`;
 });
 
 VehicleSchema.post('findOneAndDelete', async function (doc) {
