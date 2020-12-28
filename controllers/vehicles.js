@@ -1,4 +1,7 @@
 const Vehicle = require('../models/vehicle');
+const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
+const mapBoxToken = process.env.MAPBOX_TOKEN;
+const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
 const { cloudinary } = require('../cloudinary');
 
 module.exports.index = async (req, res) => {
@@ -11,7 +14,12 @@ module.exports.renderNewForm = (req, res) => {
 }
 
 module.exports.createVehicle = async (req, res, next) => {
+	const geoData = await geocoder.forwardGeocode({
+		query: req.body.vehicle.location,
+		limit: 1
+	}).send()
 	const vehicle = new Vehicle(req.body.vehicle);
+	vehicle.geometry = geoData.body.features[0].geometry;
 	vehicle.images = req.files.map(f => ({ url: f.path, filename: f.filename }));
 	vehicle.motorist = req.user._id;
 	await vehicle.save();

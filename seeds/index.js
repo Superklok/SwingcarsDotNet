@@ -28,11 +28,16 @@ const seedDB = async () => {
 		const random30Img2 = Math.floor(Math.random() * 30);
 		const price = Math.floor(Math.random() * 10) + 10;
 		const vehicle = new Vehicle({
+			// motorist: 'ObjectId' (In MongoDB Shell, run db.users.find() once a user has been created.)
 			motorist: '5fe5086e09768541ec5756a4',
 			name: `${ sample(makes)} ${sample(models) }`,
 			location: `${ vehicleLocations[random14].city }, ${ vehicleLocations[random14].province }`,
 			description: `${ sample(descriptions) }`,
 			price,
+			geometry: {
+				type: 'Point',
+				coordinates: [Number(`${ vehicleLocations[random14].longitude }`), Number(`${ vehicleLocations[random14].latitude }`)]
+			},
 			images: [
 				{
 					url: `${ vehicleImg1[random30Img1].url }`,
