@@ -35,7 +35,7 @@ module.exports.showVehicle = async(req, res) => {
 		}
 	}).populate('motorist');
 	if (!vehicle) {
-		req.flash('error', 'Unable to find that vehicle!');
+		req.flash('error', 'Sorry, the vehicle you requested cannot be found.');
 		return res.redirect('/vehicles');
 	}
 	res.render('vehicles/show', { vehicle });
@@ -45,7 +45,7 @@ module.exports.renderEditForm = async (req, res) => {
 	const { id } = req.params;
 	const vehicle = await Vehicle.findById(id)
 	if (!vehicle) {
-		req.flash('error', 'Unable to find that vehicle!');
+		req.flash('error', 'Sorry, the vehicle you requested cannot be found.');
 		return res.redirect('/vehicles');
 	}
 	res.render('vehicles/edit', { vehicle });

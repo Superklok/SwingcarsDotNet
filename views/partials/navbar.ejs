@@ -1,21 +1,20 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar sticky-top navbar-expand-lg nightBG">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#">Swingcars</a>
+		<a id="navBrand" class="navbar-brand neonBtn me-4 ms-2" href="/">Swingcars.net</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
+			<span id="customMenu" class="neonBtn navText">Menu</span>
 		</button>
-		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="collapse navbar-collapse navText" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="nav-link" href="/">Home</a>
-				<a class="nav-link" href="/vehicles">Vehicles</a>
-				<a class="nav-link" href="/vehicles/new">New Vehicle</a>
+				<a class="neonBtn ms-2 me-3 my-2" href="/vehicles">Showroom</a>
+				<a class="neonBtn ms-2 me-3 my-2" href="/vehicles/new">Add Vehicle</a>
 			</div>
 			<div class="navbar-nav ms-auto">
 				<% if(!currentUser) { %>
-				<a class="nav-link" href="/login">Login</a>
-				<a class="nav-link" href="/register">Register</a>
+				<a class="neonBtn ms-2 me-3 my-2" href="/login">Login</a>
+				<a class="neonBtn ms-2 me-3 my-2" href="/register">Register</a>
 				<% } else { %>
-				<a class="nav-link" href="/logout">Logout</a>
+				<a class="neonBtn ms-2 me-3 my-2" href="/logout">Logout</a>
 				<% } %>
 			</div>
 		</div>

@@ -1,10 +1,12 @@
 mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
-	container: 'map',
-	style: 'mapbox://styles/mapbox/streets-v11',
+	container: 'showPageMap',
+	style: 'mapbox://styles/mapbox/dark-v10',
 	center: vehicle.geometry.coordinates,
-	zoom: 10
+	zoom: 13
 });
+
+map.addControl(new mapboxgl.NavigationControl());
 
 new mapboxgl.Marker()
 	.setLngLat(vehicle.geometry.coordinates)

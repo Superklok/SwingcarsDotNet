@@ -1,58 +1,64 @@
 <% layout('layouts/boilerplate') %>
 <div class="row">
-	<h1 class="text-center">Edit Vehicle</h1>
-	<div class="col-6 offset-3">
-		<form action="/vehicles/<%=vehicle._id%>?_method=PUT" method="POST" novalidate class="validateForm" enctype="multipart/form-data">
-			<div class="mb-3">
-				<label class="form-label" for="name">Name</label>
-				<input class="form-control" type="text" id="name" name="vehicle[name]" value="<%=vehicle.name%>" required>
-				<div class="valid-feedback">
-					Sounds good!
-				</div>
-			</div>
-			<div class="mb-3">
-				<label for="image" class="form-label">Add image(s)...</label>
-				<input class="form-control" type="file" id="image" multiple name="image">
-			</div>
-			<div class="mb-3">
-				<label class="form-label" for="location">Location</label>
-				<input class="form-control" type="text" id="location" name="vehicle[location]" value="<%=vehicle.location%>" required>
-				<div class="valid-feedback">
-					Nice area!
-				</div>
-			</div>
-			<div class="mb-3">
-				<label class="form-label" for="price">Price Per Ride</label>
-				<div class="input-group">
-					<span class="input-group-text" id="price-label">CA$</span>
-					<input type="text" class="form-control" id="price" placeholder="0.00" aria-label="Price" aria-describedby="price-label" name="vehicle[price]" value="<%=vehicle.price%>" required>
-					<div class="valid-feedback">
-						Sweet deal!
+	<div class="card mb-3 nightBG">
+		<div class="card m-3 neonBG">
+			<div class="card-body">
+				<h1 class="text-center mdText contentFont">Edit Vehicle</h1>
+				<div class="col-lg-6 offset-lg-3 col-xl-8 offset-xl-2">
+					<form action="/vehicles/<%=vehicle._id%>?_method=PUT" method="POST" novalidate class="validateForm" enctype="multipart/form-data">
+						<div class="mb-3">
+							<label class="form-label smText contentFont" for="name">Name</label>
+							<input class="form-control" type="text" id="name" name="vehicle[name]" value="<%=vehicle.name%>" autofocus required>
+							<div class="valid-feedback xsText contentFont">
+								Sounds good!
+							</div>
+						</div>
+						<div class="mb-3">
+							<label for="image" class="form-label smText contentFont">Add image(s)...</label>
+							<input class="form-control" type="file" id="image" multiple name="image">
+						</div>
+						<div class="mb-3">
+							<label class="form-label smText contentFont" for="location">Location</label>
+							<input class="form-control" type="text" id="location" name="vehicle[location]" value="<%=vehicle.location%>" required>
+							<div class="valid-feedback xsText contentFont">
+								Nice area!
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label smText contentFont" for="price">Price Per Ride</label>
+							<div class="input-group">
+								<span class="input-group-text noTextShadow" id="price-label">CA$</span>
+								<input type="text" class="form-control" id="price" placeholder="0.00" aria-label="Price" aria-describedby="price-label" name="vehicle[price]" value="<%=vehicle.price%>" required>
+								<div class="valid-feedback xsText contentFont">
+									Sweet deal!
+								</div>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label smText contentFont" for="description">Description</label>
+							<textarea class="form-control" type="text" id="description" name="vehicle[description]" required><%= vehicle.description %></textarea>
+							<div class="valid-feedback xsText contentFont">
+								Wicked summary!
+							</div>
+						</div>
+						<div class="mb-3">
+							<% vehicle.images.forEach(function(img, i) { %>
+							<img src="<%= img.thumbnail %>" class="img-thumbnail" alt="">
+							<div class="form-check-inline">
+								<input type="checkbox" id="image-<%= i %>" name="destroyImg[]" value="<%= img.filename %>">
+							</div>
+							<label class="neonBtn mdBtn" for="image-<%= i %>">Delete</label>
+							<% }) %>
+						</div>
+						<div class="mb-3">
+							<button class="neonBtn mdBtn">Update Vehicle</button>
+						</div>
+					</form>
+					<div>
+						<a class="neonBtn mdBtn" href="/vehicles/<%= vehicle._id %>">Back To Vehicle</a>
 					</div>
 				</div>
 			</div>
-			<div class="mb-3">
-				<label class="form-label" for="description">Description</label>
-				<textarea class="form-control" type="text" id="description" name="vehicle[description]" required><%= vehicle.description %></textarea>
-				<div class="valid-feedback">
-					Wicked summary!
-				</div>
-			</div>
-			<div class="mb-3">
-				<% vehicle.images.forEach(function(img, i) { %>
-				<img src="<%= img.thumbnail %>" class="img-thumbnail" alt="">
-				<div class="form-check-inline">
-					<input type="checkbox" id="image-<%= i %>" name="destroyImg[]" value="<%= img.filename %>">
-				</div>
-				<label for="image-<%= i %>">Delete</label>
-				<% }) %>
-			</div>
-			<div class="mb-3">
-				<button class="btn btn-info">Update Vehicle</button>
-			</div>
-		</form>
-		<div>
-			<a class="btn btn-info" href="/vehicles/<%= vehicle._id %>">Back To Vehicle</a>
 		</div>
 	</div>
 </div>

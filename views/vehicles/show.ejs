@@ -1,9 +1,8 @@
 <% layout('layouts/boilerplate') %>
 <link rel="stylesheet" href="/styles/stars.css">
 <div class="row">
-	<div class="col-6">
-		<div id='map' style='width: 400px; height: 300px;'></div>
-		<div id="vehicleCarousel" class="carousel slide" data-bs-ride="carousel">
+	<div class="col-lg-6">
+		<div id="vehicleCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
 			<div class="carousel-inner">
 				<% vehicle.images.forEach((img, i) => { %>
 				<div class="carousel-item <%= i === 0 ? 'active' : '' %>">
@@ -22,71 +21,80 @@
 			</a>
 			<% } %>
 		</div>
-		<div class="card mb-3">
-			<div class="card-body">
-				<h5 class="card-title"><%= vehicle.name %></h5>
-				<p class="card-text"><i><%= vehicle.motorist.username %> posted this vehicle</i></p>
-				<p class="card-text"><%= vehicle.description %></p>
-			</div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item text-muted"><%= vehicle.location %></li>
-				<li class="list-group-item">CA$<%= vehicle.price %>/Ride</li>
-			</ul>
-			<% if (currentUser && vehicle.motorist.equals(currentUser._id)) { %>
-			<div class="card-body">
-				<a class="card-link btn btn-info" href="/vehicles/<%= vehicle._id %>/edit">Edit</a>
-				<form class="d-inline" action="/vehicles/<%= vehicle._id %>?_method=DELETE" method="POST">
-					<button class="btn btn-info">Delete</button>
-				</form>
-			</div>
-			<% } %>
-			<div class="card-footer">
-				<a class="btn btn-info" href="/vehicles">All Vehicles</a>
+		<div class="card mb-3 nightBG">
+			<div class="card m-3 neonBG">
+				<div class="card-body">
+					<h5 class="card-title mdText contentFont"><%= vehicle.name %></h5>
+					<p class="card-text smText contentFont"><span class="neonBtn mdBtn"><%= vehicle.motorist.username %></span> posted this vehicle</p>
+					<p class="card-text smText contentFont"><%= vehicle.description %></p>
+					<p class="card-text smText contentFont"><%= vehicle.location %></p>
+					<p class="smText">CA$<span class="contentFont"><%= vehicle.price %>/Ride</span></p>
+				</div>
+				<% if (currentUser && vehicle.motorist.equals(currentUser._id)) { %>
+				<div class="card-body">
+					<a class="neonBtn mdBtn me-5" href="/vehicles/<%= vehicle._id %>/edit">Edit</a>
+					<form class="d-inline" action="/vehicles/<%= vehicle._id %>?_method=DELETE" method="POST">
+						<button class="neonBtn mdBtn">Delete</button>
+					</form>
+				</div>
+				<% } %>
+				<div class="card-footer">
+					<a class="neonBtn mdBtn" href="/vehicles">All Vehicles</a>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="col-6">
+	<div class="col-lg-6">
+		<div id="showPageMap" class="noTextShadow mb-3 rounded"></div>
 		<% if (currentUser) { %>
-		<h2>Leave Your Review</h2>
-		<form action="/vehicles/<%= vehicle._id %>/reviews" method="POST" class="mb-3 validateForm" novalidate>
-			<div class="mb-3">
-				<fieldset class="starability-growRotate">
-					<input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
-					<input type="radio" id="first-rate1" name="review[rating]" value="1" />
-					<label for="first-rate1" title="Terrible">1 star</label>
-					<input type="radio" id="first-rate2" name="review[rating]" value="2" />
-					<label for="first-rate2" title="Not good">2 stars</label>
-					<input type="radio" id="first-rate3" name="review[rating]" value="3" />
-					<label for="first-rate3" title="Average">3 stars</label>
-					<input type="radio" id="first-rate4" name="review[rating]" value="4" />
-					<label for="first-rate4" title="Very good">4 stars</label>
-					<input type="radio" id="first-rate5" name="review[rating]" value="5" />
-					<label for="first-rate5" title="Amazing">5 stars</label>
-				</fieldset>
-			</div>
-			<div class="mb-3">
-				<label class="form-label" for="body">Review</label>
-				<textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
-				<div class="valid-feedback">
-					Thank you!
+		<div class="card mb-3 nightBG">
+			<div class="card m-3 neonBG">
+				<div class="card-body">
+					<h2 class="mb-5 mdText contentFont">Leave Your Review</h2>
+					<form action="/vehicles/<%= vehicle._id %>/reviews" method="POST" class="mb-3 validateForm" novalidate>
+						<div class="ms-5 mb-3 noTextShadow">
+							<fieldset class="starability-growRotate">
+								<input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
+								<input type="radio" id="first-rate1" name="review[rating]" value="1" />
+								<label for="first-rate1" title="Terrible">1 star</label>
+								<input type="radio" id="first-rate2" name="review[rating]" value="2" />
+								<label for="first-rate2" title="Not good">2 stars</label>
+								<input type="radio" id="first-rate3" name="review[rating]" value="3" />
+								<label for="first-rate3" title="Average">3 stars</label>
+								<input type="radio" id="first-rate4" name="review[rating]" value="4" />
+								<label for="first-rate4" title="Very good">4 stars</label>
+								<input type="radio" id="first-rate5" name="review[rating]" value="5" />
+								<label for="first-rate5" title="Amazing">5 stars</label>
+							</fieldset>
+						</div>
+						<div class="mb-3">
+							<label class="form-label mdText contentFont" for="body">Review</label>
+							<textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
+							<div class="valid-feedback xsText contentFont">
+								Thank you!
+							</div>
+						</div>
+						<button class="neonBtn mdBtn">Submit</button>
+					</form>
 				</div>
 			</div>
-			<button class="btn btn-info">Submit</button>
-		</form>
+		</div>
 		<% } %>
 		<% for(let review of vehicle.reviews) { %>
-		<div class="card mb-3">
-			<div class="card-body">
-				<h5 class="card-title"><%= review.motorist.username %></h5>
-				<p class="starability-result" data-rating="<%= review.rating %>">
-					Rated <%= review.rating %> stars
-				</p>
-				<p class="card-text">"<%= review.body %>"</p>
-				<% if (currentUser && review.motorist.equals(currentUser._id)) { %>
-				<form action="/vehicles/<%= vehicle._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
-					<button class="btn btn-sm btn-info">Delete</button>
-				</form>
-				<% } %>
+		<div class="card mb-3 nightBG">
+			<div class="card m-3 neonBG">
+				<div class="card-body">
+					<h5 class="card-title neonBtn mdBtn"><%= review.motorist.username %></h5>
+					<p class="starability-result" data-rating="<%= review.rating %>">
+						<span class="srRating">Rated <%= review.rating %> stars</span>
+					</p>
+					<p class="card-text smText contentFont">"<%= review.body %>"</p>
+					<% if (currentUser && review.motorist.equals(currentUser._id)) { %>
+					<form action="/vehicles/<%= vehicle._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+						<button class="neonBtn mdBtn">Delete</button>
+					</form>
+					<% } %>
+				</div>
 			</div>
 		</div>
 		<% } %>

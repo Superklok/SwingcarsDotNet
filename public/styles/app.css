@@ -1,0 +1,40 @@
+body {
+	background-attachment: fixed;
+	background-image: url('https://res.cloudinary.com/superkloklabs/image/upload/v1609157894/SwingcarsDotNet/swingcarsBG_if57r6.jpg');
+	background-size: cover;
+	background-position: center;
+	text-shadow: -1px 1px 0 #000,
+				1px 1px 0 #000,
+				1px -1px 0 #000,
+				-1px -1px 0 #000;
+}
+
+.noTextShadow {
+	text-shadow: none;
+}
+
+.srRating {
+	visibility: hidden;
+}
+
+.neonBG {
+	background: rgba(255, 20, 147, 0.1);
+}
+
+.mdText {
+	font-size: 2.1rem;
+}
+
+.mdBtn {
+	font-size: 1.7rem;
+}
+
+#clusterMap {
+	width: 100%;
+	height: 550px;
+}
+
+#showPageMap {
+	width: 100%;
+	height: 500px;
+}

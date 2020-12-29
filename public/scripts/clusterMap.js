@@ -1,10 +1,12 @@
 mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
-	container: 'map',
+	container: 'clusterMap',
 	style: 'mapbox://styles/mapbox/dark-v10',
 	center: [-106.3468, 56.1304],
 	zoom: 3
 });
+
+map.addControl(new mapboxgl.NavigationControl());
 
 map.on('load', function () {
 	map.addSource('vehicles', {
