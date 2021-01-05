@@ -12,19 +12,7 @@ body {
 }
 
 .cover-container {
-	max-width: 60vw;
-}
-
-.contentFont {
-	font-family: 'Lobster Two', cursive;
-}
-
-.xsText {
-	font-size: 1.1rem;
-}
-
-.smText {
-	font-size: 1.6rem;
+	max-width: 75vw;
 }
 
 .lgText {

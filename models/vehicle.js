@@ -45,7 +45,7 @@ const VehicleSchema = new Schema({
 VehicleSchema.virtual('properties.clusterPopUp').get(function () {
 	return `
 	<strong><a href="/vehicles/${ this._id }">${ this.name }</a></strong>
-	<p>${ this.description.substring(0, 30) }...</p>`;
+	<p>${ this.description.substring(0, 100) }...</p>`;
 });
 
 VehicleSchema.post('findOneAndDelete', async function (doc) {

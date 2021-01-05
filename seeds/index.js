@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== "production") {
+	require('dotenv').config();
+}
+
 const mongoose = require('mongoose');
 const { makes, models } = require('./vehicleNames');
 const { descriptions } = require('./vehicleDescriptions');
@@ -5,8 +9,12 @@ const vehicleLocations = require('./vehicleLocations');
 const vehicleImg1 = require('./vehicleImg1');
 const vehicleImg2 = require('./vehicleImg2');
 const Vehicle = require('../models/vehicle');
+// Production Database
+// const dbUrl = process.env.DB_URL;
+// Development Database
+const dbUrl = 'mongodb://localhost:27017/swingcarsdotnet';
 
-mongoose.connect('mongodb://localhost:27017/swingcarsdotnet', {
+mongoose.connect(dbUrl, {
 	useNewUrlParser: true,
 	useCreateIndex: true,
 	useUnifiedTopology: true
@@ -29,6 +37,9 @@ const seedDB = async () => {
 		const price = Math.floor(Math.random() * 10) + 10;
 		const vehicle = new Vehicle({
 			// motorist: 'ObjectId' (In MongoDB Shell, run db.users.find() once a user has been created.)
+			// Production Database User
+			// motorist: '5ff382058fddb542f0f5e09f',
+			// Development Database User
 			motorist: '5fe5086e09768541ec5756a4',
 			name: `${ sample(makes)} ${sample(models) }`,
 			location: `${ vehicleLocations[random14].city }, ${ vehicleLocations[random14].province }`,

@@ -1,20 +1,3 @@
-.nightBG {
-	background: rgba(0, 0, 0, 0.8);
-}
-
-.xsText {
-	font-size: 1.1rem;
-}
-
-.smText {
-	font-size: 1.6rem;
-}
-
-.contentFont {
-	color: #FFF;
-	font-family: 'Lobster Two', cursive;
-}
-
 .navText {
  	font-size: 1.6rem;
 }
@@ -34,13 +17,13 @@
 	font-size: 2rem;
 }
 
-#navBrand {
+.navbar-brand {
 	font-size: 1.9rem;
 }
 
 #slText {
 	font-family: 'VT323', monospace;
-	font-size: 2.4rem;
+	font-size: 2.6rem;
 }
 
 #ccText {

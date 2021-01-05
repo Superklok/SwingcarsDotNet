@@ -17,8 +17,20 @@ body {
 	visibility: hidden;
 }
 
+.nightBG {
+	background: rgba(0, 0, 0, 0.8);
+}
+
 .neonBG {
 	background: rgba(255, 20, 147, 0.1);
+}
+
+.xsText {
+	font-size: 1.1rem;
+}
+
+.smText {
+	font-size: 1.6rem;
 }
 
 .mdText {
@@ -27,6 +39,15 @@ body {
 
 .mdBtn {
 	font-size: 1.7rem;
+}
+
+.contentFont {
+	color: #FFF;
+	font-family: 'Lobster Two', cursive;
+}
+
+.defFont {
+	color: #FFF;
 }
 
 #clusterMap {

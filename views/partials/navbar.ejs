@@ -1,20 +1,20 @@
-<nav class="navbar sticky-top navbar-expand-lg nightBG">
+<nav class="menu navbar sticky-top navbar-expand-md nightBG">
 	<div class="container-fluid">
-		<a id="navBrand" class="navbar-brand neonBtn me-4 ms-2" href="/">Swingcars.net</a>
+		<a class="navbar-brand neonBtn me-4 me-md-3 me-lg-4 ms-4 ms-md-3 ms-lg-4" href="/">Swingcars.net</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			<span id="customMenu" class="neonBtn navText">Menu</span>
 		</button>
 		<div class="collapse navbar-collapse navText" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="neonBtn ms-2 me-3 my-2" href="/vehicles">Showroom</a>
-				<a class="neonBtn ms-2 me-3 my-2" href="/vehicles/new">Add Vehicle</a>
+				<a class="neonBtn ms-4 ms-md-3 me-2 mt-4 mt-md-2 mb-2" href="/vehicles">Showroom</a>
+				<a class="neonBtn ms-4 ms-md-3 me-2 mt-3 mt-md-2 mb-2" href="/vehicles/new">Add Vehicle</a>
 			</div>
 			<div class="navbar-nav ms-auto">
 				<% if(!currentUser) { %>
-				<a class="neonBtn ms-2 me-3 my-2" href="/login">Login</a>
-				<a class="neonBtn ms-2 me-3 my-2" href="/register">Register</a>
+				<a class="neonBtn ms-4 ms-md-3 me-2 mt-3 mt-md-2 mb-2" href="/login">Login</a>
+				<a class="neonBtn ms-4 ms-md-3 me-4 me-md-3 me-lg-4 mt-3 mt-md-2 mb-4 mb-md-2" href="/register">Register</a>
 				<% } else { %>
-				<a class="neonBtn ms-2 me-3 my-2" href="/logout">Logout</a>
+				<a class="neonBtn ms-4 ms-md-3 me-4 me-md-3 me-lg-4 mt-3 mt-md-2 mb-4 mb-md-2" href="/logout">Logout</a>
 				<% } %>
 			</div>
 		</div>
