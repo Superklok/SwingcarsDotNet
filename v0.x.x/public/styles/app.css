@@ -1,0 +1,24 @@
+.nightBG {
+	background: rgba(0, 0, 0, 0.8);
+}
+
+.xsText {
+	font-size: 1.1rem;
+}
+
+.smText {
+	font-size: 1.6rem;
+}
+
+.mdText {
+	font-size: 2.1rem;
+}
+
+.mdBtn {
+	font-size: 1.7rem;
+}
+
+.contentFont {
+	color: #FFF;
+	font-family: 'Lobster Two', cursive;
+}

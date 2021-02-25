@@ -1,6 +1,6 @@
 {
   "name": "swingcarsdotnet",
-  "version": "1.22.3",
+  "version": "1.22.4",
   "description": "Swingcars (English)",
   "main": "app.js",
   "scripts": {
@@ -11,12 +11,12 @@
     "type": "git",
     "url": "https://github.com/Superklok/SwingcarsDotNet.git"
   },
-  "author": "Trev Morin <trev@superklok.com> (https://trevmorin.com)",
+  "author": "Trev Morin <trev@superklok.com> (http://trevmorin.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Superklok/SwingcarsDotNet/issues"
   },
-  "homepage": "https://swingcars.net",
+  "homepage": "http://swingcars.net",
   "dependencies": {
     "@mapbox/mapbox-sdk": "^0.11.0",
     "cloudinary": "^1.23.0",
