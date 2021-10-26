@@ -14,3 +14,8 @@ body {
 .lgText {
 	font-size: 3.5rem;
 }
+
+.socialBtn {
+	text-decoration: none;
+	padding: 7px;
+}
