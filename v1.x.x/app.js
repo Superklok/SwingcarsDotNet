@@ -20,9 +20,9 @@ const vehicleRoutes = require('./routes/vehicles');
 const reviewRoutes = require('./routes/reviews');
 const MongoDBStore = require('connect-mongo')(session);
 // Production Database
-// const dbUrl = process.env.DB_URL;
+const dbUrl = process.env.DB_URL;
 // Development Database
-const dbUrl = 'mongodb://localhost:27017/swingcarsdotnet';
+// const dbUrl = 'mongodb://localhost:27017/swingcarsdotnet';
 
 mongoose.connect(dbUrl, {
 	useNewUrlParser: true,

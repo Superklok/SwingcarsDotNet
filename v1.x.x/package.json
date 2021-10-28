@@ -1,6 +1,6 @@
 {
   "name": "swingcarsdotnet",
-  "version": "1.22.4",
+  "version": "1.24.1",
   "description": "Swingcars (English)",
   "main": "app.js",
   "scripts": {
@@ -38,6 +38,7 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.0.1",
+    "pm2": "^5.1.2",
     "sanitize-html": "^2.5.2"
   }
 }
