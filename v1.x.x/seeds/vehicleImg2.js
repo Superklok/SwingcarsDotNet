@@ -1,122 +1,122 @@
 module.exports = [
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609049109/SwingcarsDotNet/qgwrzxcxwz3lgdrynp5w.jpg',
-		filename: 'SwingcarsDotNet/qgwrzxcxwz3lgdrynp5w'
+		url: '../assets/img/vehicleSeedImg1/seedImg1.jpg',
+		filename: 'SwingcarsDotNet/zhilud6yuj1kvgvtwx2s'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609049156/SwingcarsDotNet/xe9bt2rjvfgx7eqsqrvu.jpg',
-		filename: 'SwingcarsDotNet/xe9bt2rjvfgx7eqsqrvu'
+		url: '../assets/img/vehicleSeedImg1/seedImg2.jpg',
+		filename: 'SwingcarsDotNet/qrtuvodwdpxafahwzdgl'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609049173/SwingcarsDotNet/j8f5r1sjv29xu4gooahl.jpg',
-		filename: 'SwingcarsDotNet/j8f5r1sjv29xu4gooahl'
+		url: '../assets/img/vehicleSeedImg1/seedImg3.jpg',
+		filename: 'SwingcarsDotNet/te3wycivujmmbxfefsd9'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609049204/SwingcarsDotNet/xjws5jyeoyicfwhk7tyf.jpg',
-		filename: 'SwingcarsDotNet/xjws5jyeoyicfwhk7tyf'
+		url: '../assets/img/vehicleSeedImg1/seedImg4.jpg',
+		filename: 'SwingcarsDotNet/hccoz4rutrc71yhorq46'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609049225/SwingcarsDotNet/xregyoi1hfvlunohdetb.jpg',
-		filename: 'SwingcarsDotNet/xregyoi1hfvlunohdetb'
+		url: '../assets/img/vehicleSeedImg1/seedImg5.jpg',
+		filename: 'SwingcarsDotNet/vhhv51d3e7mtmpqypbc1'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609049239/SwingcarsDotNet/wvlmfg5jhhyu2kjvuijy.jpg',
-		filename: 'SwingcarsDotNet/wvlmfg5jhhyu2kjvuijy'
+		url: '../assets/img/vehicleSeedImg1/seedImg6.jpg',
+		filename: 'SwingcarsDotNet/a4njaes84qp8dphi8bfv'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609049256/SwingcarsDotNet/edg2ifaqucj4vcy1rnmr.jpg',
-		filename: 'SwingcarsDotNet/edg2ifaqucj4vcy1rnmr'
+		url: '../assets/img/vehicleSeedImg1/seedImg7.jpg',
+		filename: 'SwingcarsDotNet/qx4vybvffak9ogdpdx8y'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052083/SwingcarsDotNet/wokovyji6k72xxbk37mz.jpg',
-		filename: 'SwingcarsDotNet/wokovyji6k72xxbk37mz'
+		url: '../assets/img/vehicleSeedImg1/seedImg8.jpg',
+		filename: 'SwingcarsDotNet/yayq2y8vkstkryhx8eio'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052108/SwingcarsDotNet/mjos3t7jhymtgzy1obsm.jpg',
-		filename: 'SwingcarsDotNet/mjos3t7jhymtgzy1obsm'
+		url: '../assets/img/vehicleSeedImg1/seedImg9.jpg',
+		filename: 'SwingcarsDotNet/oghnjx6onc65cxu39e1r'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052129/SwingcarsDotNet/y986wtv6tbf4pk8p1tx7.jpg',
-		filename: 'SwingcarsDotNet/y986wtv6tbf4pk8p1tx7'
+		url: '../assets/img/vehicleSeedImg1/seedImg10.jpg',
+		filename: 'SwingcarsDotNet/ltra2bjceruzetfduti5'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052146/SwingcarsDotNet/dfrhdvakkdrzooahap3b.jpg',
-		filename: 'SwingcarsDotNet/dfrhdvakkdrzooahap3b'
+		url: '../assets/img/vehicleSeedImg1/seedImg11.jpg',
+		filename: 'SwingcarsDotNet/hznlvlgrjzjuq4ejuac2'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052161/SwingcarsDotNet/t5kucui39b7ycvvtah1k.jpg',
-		filename: 'SwingcarsDotNet/t5kucui39b7ycvvtah1k'
+		url: '../assets/img/vehicleSeedImg1/seedImg12.jpg',
+		filename: 'SwingcarsDotNet/orgwx8ne0k0abtere5xo'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052174/SwingcarsDotNet/n6362h7wu8pm8pwkt6sa.jpg',
-		filename: 'SwingcarsDotNet/n6362h7wu8pm8pwkt6sa'
+		url: '../assets/img/vehicleSeedImg1/seedImg13.jpg',
+		filename: 'SwingcarsDotNet/yh45nqemfac41sbfwxc1'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052188/SwingcarsDotNet/dipaifijkkm9n4hn4f98.jpg',
-		filename: 'SwingcarsDotNet/dipaifijkkm9n4hn4f98'
+		url: '../assets/img/vehicleSeedImg1/seedImg14.jpg',
+		filename: 'SwingcarsDotNet/lsxxvcizde2fxac6wyhk'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052209/SwingcarsDotNet/lda2cti7tbv6hytm9in5.jpg',
-		filename: 'SwingcarsDotNet/lda2cti7tbv6hytm9in5'
+		url: '../assets/img/vehicleSeedImg1/seedImg15.jpg',
+		filename: 'SwingcarsDotNet/ritfx5nol5eyiy4k2juj'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052228/SwingcarsDotNet/qrycgww1b5taltighrxm.jpg',
-		filename: 'SwingcarsDotNet/qrycgww1b5taltighrxm'
+		url: '../assets/img/vehicleSeedImg1/seedImg16.jpg',
+		filename: 'SwingcarsDotNet/zhyjsxh8zzbvfztgouzu'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052243/SwingcarsDotNet/lpslrspvvhrfrnidl9tf.jpg',
-		filename: 'SwingcarsDotNet/lpslrspvvhrfrnidl9tf'
+		url: '../assets/img/vehicleSeedImg1/seedImg17.jpg',
+		filename: 'SwingcarsDotNet/scnwejovcfkcctfdmf9n'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052260/SwingcarsDotNet/qgdfmifyfdegtm5jdsus.jpg',
-		filename: 'SwingcarsDotNet/qgdfmifyfdegtm5jdsus'
+		url: '../assets/img/vehicleSeedImg1/seedImg18.jpg',
+		filename: 'SwingcarsDotNet/nsbvlwwq1dhmptgroicz'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052286/SwingcarsDotNet/uhhytetj3lflxazimfc8.jpg',
-		filename: 'SwingcarsDotNet/uhhytetj3lflxazimfc8'
+		url: '../assets/img/vehicleSeedImg1/seedImg19.jpg',
+		filename: 'SwingcarsDotNet/cdsdfpcmrzh9zxd8f0ia'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052299/SwingcarsDotNet/ho3rxx9vvhlrkwjonzi3.jpg',
-		filename: 'SwingcarsDotNet/ho3rxx9vvhlrkwjonzi3'
+		url: '../assets/img/vehicleSeedImg1/seedImg20.jpg',
+		filename: 'SwingcarsDotNet/ege1rzmzfylmxmhusren'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052314/SwingcarsDotNet/xccffik1uwpvotbzvcml.jpg',
-		filename: 'SwingcarsDotNet/xccffik1uwpvotbzvcml'
+		url: '../assets/img/vehicleSeedImg1/seedImg21.jpg',
+		filename: 'SwingcarsDotNet/ihfmqkwcdo0tng2cvjw2'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052329/SwingcarsDotNet/omjfq87pum2qu8obvfyd.jpg',
-		filename: 'SwingcarsDotNet/omjfq87pum2qu8obvfyd'
+		url: '../assets/img/vehicleSeedImg1/seedImg22.jpg',
+		filename: 'SwingcarsDotNet/hronwz9ls2rjybu2pxpl'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052341/SwingcarsDotNet/m2m0vjlklqhnw4dtmzq4.jpg',
-		filename: 'SwingcarsDotNet/m2m0vjlklqhnw4dtmzq4'
+		url: '../assets/img/vehicleSeedImg1/seedImg23.jpg',
+		filename: 'SwingcarsDotNet/vzqioiqfxozcmqowxb4e'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052354/SwingcarsDotNet/kkmnc0fkaqrkyvu8kns0.jpg',
-		filename: 'SwingcarsDotNet/kkmnc0fkaqrkyvu8kns0'
+		url: '../assets/img/vehicleSeedImg1/seedImg24.jpg',
+		filename: 'SwingcarsDotNet/tuoofcxfuvqwqtpbwzqj'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052369/SwingcarsDotNet/modcc9gawiv67r9szzwl.jpg',
-		filename: 'SwingcarsDotNet/modcc9gawiv67r9szzwl'
+		url: '../assets/img/vehicleSeedImg1/seedImg25.jpg',
+		filename: 'SwingcarsDotNet/tevrg6dnl2c9piv22myx'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052383/SwingcarsDotNet/xblrhifolujp8d6sprbh.jpg',
-		filename: 'SwingcarsDotNet/xblrhifolujp8d6sprbh'
+		url: '../assets/img/vehicleSeedImg1/seedImg26.jpg',
+		filename: 'SwingcarsDotNet/gfkzbigqvyctkfucmfhe'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052399/SwingcarsDotNet/z2vrjntkt4yjuettovn6.jpg',
-		filename: 'SwingcarsDotNet/z2vrjntkt4yjuettovn6'
+		url: '../assets/img/vehicleSeedImg1/seedImg27.jpg',
+		filename: 'SwingcarsDotNet/sx29h41p2h5ogh9dkfxt'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052413/SwingcarsDotNet/tgdi0npu6dr1t5lxknwd.jpg',
-		filename: 'SwingcarsDotNet/tgdi0npu6dr1t5lxknwd'
+		url: '../assets/img/vehicleSeedImg1/seedImg28.jpg',
+		filename: 'SwingcarsDotNet/k4gg6e9uaz28tpm7qgdc'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052426/SwingcarsDotNet/aig8vzkfda9oikgsw8be.jpg',
-		filename: 'SwingcarsDotNet/aig8vzkfda9oikgsw8be'
+		url: '../assets/img/vehicleSeedImg1/seedImg29.jpg',
+		filename: 'SwingcarsDotNet/zbtdam6khrjkx7kvuhav'
 	},
 	{
-		url: 'https://res.cloudinary.com/superkloklabs/image/upload/v1609052440/SwingcarsDotNet/k1yfggljgufutyxpu8cx.jpg',
-		filename: 'SwingcarsDotNet/k1yfggljgufutyxpu8cx'
+		url: '../assets/img/vehicleSeedImg1/seedImg30.jpg',
+		filename: 'SwingcarsDotNet/jw4mzfrjttbuhyerwztr'
 	}
 ];

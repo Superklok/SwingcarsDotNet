@@ -1,6 +1,6 @@
 {
   "name": "swingcarsdotnet",
-  "version": "1.24.2",
+  "version": "1.25.4",
   "description": "Swingcars (English)",
   "main": "app.js",
   "scripts": {

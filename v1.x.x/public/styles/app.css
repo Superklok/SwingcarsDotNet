@@ -1,6 +1,6 @@
 body {
 	background-attachment: fixed;
-	background-image: url('https://res.cloudinary.com/superkloklabs/image/upload/v1609157894/SwingcarsDotNet/swingcarsBG_if57r6.jpg');
+	background-image: url('../assets/img/swingcarsBG.jpg');
 	background-size: cover;
 	background-position: center;
 	text-shadow: -1px 1px 0 #000,
@@ -52,10 +52,10 @@ body {
 
 #clusterMap {
 	width: 100%;
-	height: 550px;
+	height: 400px;
 }
 
 #showPageMap {
 	width: 100%;
-	height: 500px;
+	height: 400px;
 }
