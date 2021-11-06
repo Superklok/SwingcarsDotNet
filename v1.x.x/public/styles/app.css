@@ -3,6 +3,7 @@ body {
 	background-image: url('../assets/img/swingcarsBG.jpg');
 	background-size: cover;
 	background-position: center;
+	background-color: #9F0253;
 	text-shadow: -1px 1px 0 #000,
 				1px 1px 0 #000,
 				1px -1px 0 #000,
@@ -48,6 +49,10 @@ body {
 
 .defFont {
 	color: #FFF;
+}
+
+.copyright {
+	font-size: 1.5rem;
 }
 
 #clusterMap {

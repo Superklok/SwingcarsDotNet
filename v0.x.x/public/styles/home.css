@@ -1,10 +1,10 @@
 body {
 	background-attachment: fixed;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
 	url('../assets/img/swingcarsBG.jpg');
 	background-size: cover;
 	background-position: center;
-	box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+	background-color: #9F0253;
 	text-shadow: -1px 1px 0 #000,
 				1px 1px 0 #000,
 				1px -1px 0 #000,
@@ -15,7 +15,15 @@ body {
 	font-size: 3.5rem;
 }
 
+.lgMobileText {
+	font-size: 3rem;
+}
+
 .socialBtn {
 	text-decoration: none;
 	padding: 7px;
+}
+
+.copyright {
+	font-size: 1.5rem;
 }

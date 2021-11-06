@@ -2,7 +2,7 @@ version: "2.4"
 
 services:
   app:
-    image: swingcarsdotnet:0.5.2
+    image: swingcarsdotnet:0.5.6
     build: 
       context: .
     ports:
