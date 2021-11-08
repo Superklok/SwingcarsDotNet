@@ -5,8 +5,16 @@ const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
 const { cloudinary } = require('../cloudinary');
 
 module.exports.index = async (req, res) => {
-	const vehicles = await Vehicle.find({});
-	res.render('vehicles/index', { vehicles });
+	if (!req.query.page) {
+		const vehicles = await Vehicle.paginate({}, {});
+		res.render('vehicles/index', { vehicles });
+	} else {
+		const { page } = req.query;
+		const vehicles = await Vehicle.paginate({}, {
+			page
+		});
+		res.status(200).json(vehicles);
+	}
 }
 
 module.exports.renderNewForm = (req, res) => {

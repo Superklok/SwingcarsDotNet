@@ -1,6 +1,6 @@
 {
   "name": "swingcarsdotnet",
-  "version": "1.25.8",
+  "version": "1.26.4",
   "description": "Swingcars (English)",
   "main": "app.js",
   "scripts": {
@@ -31,7 +31,8 @@
     "helmet": "^4.3.1",
     "joi": "^17.3.0",
     "method-override": "^3.0.0",
-    "mongoose": "^5.11.8",
+    "mongoose": "^5.11.10",
+    "mongoose-paginate-v2": "^1.4.2",
     "multer": "^1.4.2",
     "multer-storage-cloudinary": "^4.0.0",
     "nodemon": "^2.0.6",

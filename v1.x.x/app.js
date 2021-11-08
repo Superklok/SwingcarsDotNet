@@ -80,6 +80,7 @@ const scriptSrcUrls = [
 	"https://cdn.jsdelivr.net/",
 	"https://api.tiles.mapbox.com/",
 	"https://api.mapbox.com/",
+	"https://code.jquery.com/",
 ];
 const styleSrcUrls = [
 	"https://cdn.jsdelivr.net/",
@@ -122,7 +123,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-	if(!['/login', '/'].includes(req.originalUrl)) {
+	if(!['/login', '/register', '/'].includes(req.originalUrl)) {
 		req.session.returnTo = req.originalUrl;
 	}
 	res.locals.currentUser = req.user;
