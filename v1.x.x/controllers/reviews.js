@@ -1,5 +1,5 @@
-const Vehicle = require('../models/vehicle');
-const Review = require('../models/review');
+const Vehicle = require('../models/vehicle'),
+	  Review  = require('../models/review');
 
 module.exports.createReview = async (req, res) => {
 	const vehicle = await Vehicle.findById(req.params.id);

@@ -1,7 +1,7 @@
-const {vehicleSchema, reviewSchema} = require('./schemas.js');
-const ExpressError = require('./HELPeR/ExpressError');
-const Vehicle = require('./models/vehicle');
-const Review = require('./models/review');
+const {vehicleSchema, reviewSchema} = require('./schemas.js'),
+	  ExpressError                  = require('./HELPeR/ExpressError'),
+	  Vehicle                       = require('./models/vehicle'),
+	  Review                        = require('./models/review');
 
 module.exports.isLoggedIn = (req, res, next) => {
 	if (!req.isAuthenticated()) {
@@ -14,8 +14,8 @@ module.exports.isLoggedIn = (req, res, next) => {
 module.exports.validateVehicle = (req, res, next) => {
 	const {error} = vehicleSchema.validate(req.body);
 	if (error) {
-		const msg = error.details.map(el => el.message).join(',')
-		throw new ExpressError(msg, 400)
+		const msg = error.details.map(el => el.message).join(',');
+		throw new ExpressError(msg, 400);
 	} else {
 		next();
 	}
@@ -43,9 +43,9 @@ module.exports.isReviewer = async (req, res, next) => {
 
 module.exports.validateReview = (req, res, next) => {
 	const {error} = reviewSchema.validate(req.body);
-	if(error){
-		const msg = error.details.map(el => el.message).join(',')
-		throw new ExpressError(msg, 400)
+	if (error) {
+		const msg = error.details.map(el => el.message).join(',');
+		throw new ExpressError(msg, 400);
 	} else {
 		next();
 	}

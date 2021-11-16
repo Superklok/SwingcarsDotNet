@@ -1,5 +1,5 @@
-const paginate = document.getElementById('paginate');
-const $vehiclesContainer = $('#vehicles-container');
+const paginate           = document.getElementById('paginate'),
+	  $vehiclesContainer = $('#vehicles-container');
 
 paginate.addEventListener('click', function(e) {
 	e.preventDefault();
