@@ -81,7 +81,7 @@
 <br />
 <br />
 
-### 7. Install dependancies:
+### 7. Install dependencies:
 `cd SwingcarsDotNet/v1.x.x/`
 <br />
 

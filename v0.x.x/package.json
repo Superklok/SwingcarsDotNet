@@ -1,6 +1,6 @@
 {
   "name": "swingcarsdotnet",
-  "version": "0.5.9",
+  "version": "0.5.10",
   "description": "Swingcars (English)",
   "main": "app.js",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "homepage": "http://swingcars.net",
   "dependencies": {
-    "ejs": "^3.1.5",
+    "ejs": "^3.1.6",
     "ejs-mate": "^3.0.0",
     "express": "^4.17.1"
   },
