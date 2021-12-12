@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   app:
-    image: swingcarsdotnet:0.5.12
+    image: superklok/swingcarsdotnet:0.5.13
     build: 
       context: .
     ports:
