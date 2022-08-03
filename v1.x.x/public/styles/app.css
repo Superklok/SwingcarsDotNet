@@ -1,13 +1,30 @@
 body {
-	background-attachment: fixed;
-	background-image: url('../assets/img/swingcarsBG.jpg');
+	background: url('../assets/img/swingcarsBG.jpg') no-repeat center center fixed;
 	background-size: cover;
-	background-position: center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 	background-color: #59012D;
 	text-shadow: -1px 1px 0 #000,
 				1px 1px 0 #000,
 				1px -1px 0 #000,
 				-1px -1px 0 #000;
+}
+
+body:after {
+	content:"";
+	position:fixed;
+	top:0;
+	height:100vh;
+	left:0;
+	right:0;
+	background: url('../assets/img/swingcarsBG.jpg') center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color: #59012D;
+	z-index:-1;
 }
 
 .noTextShadow {

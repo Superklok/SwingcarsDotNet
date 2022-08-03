@@ -1,0 +1,49 @@
+@media (prefers-color-scheme: dark) {
+	body {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+		url('../assets/img/swingcarsBG.jpg') no-repeat center center fixed;
+		background-size: cover;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-color: #59012D;
+		text-shadow: -1px 1px 0 #000,
+					1px 1px 0 #000,
+					1px -1px 0 #000,
+					-1px -1px 0 #000;
+	}
+
+	body:after {
+		content:"";
+		position:fixed;
+		top:0;
+		height:100vh;
+		left:0;
+		right:0;
+		background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+		url('../assets/img/swingcarsBG.jpg') center center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		background-color: #59012D;
+		z-index:-1;
+	}
+
+	.cover-container {
+		max-width: 75vw;
+	}
+
+	.lgText {
+		font-size: 3.5rem;
+	}
+
+	.enterBtn {
+		font-size: 2.3rem;
+	}
+
+	.hpSocialBtn {
+		text-decoration: none;
+		padding: 4px;
+	}
+}

@@ -1,0 +1,85 @@
+@media (prefers-color-scheme: dark) {
+	body {
+		background-image: url('../assets/img/swingcarsBG.jpg') no-repeat center center fixed;
+		background-size: cover;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-color: #59012D;
+		text-shadow: -1px 1px 0 #000,
+					1px 1px 0 #000,
+					1px -1px 0 #000,
+					-1px -1px 0 #000;
+	}
+
+	body:after {
+		content:"";
+		position:fixed;
+		top:0;
+		height:100vh;
+		left:0;
+		right:0;
+		background: url('../assets/img/swingcarsBG.jpg') center center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		background-color: #59012D;
+		z-index:-1;
+	}
+
+	.noTextShadow {
+		text-shadow: none;
+	}
+
+	.srRating {
+		visibility: hidden;
+	}
+
+	.nightBG {
+		background: rgba(0, 0, 0, 0.8);
+	}
+
+	.neonBG {
+		background: rgba(255, 20, 147, 0.1);
+	}
+
+	.xsText {
+		font-size: 1.1rem;
+	}
+
+	.smText {
+		font-size: 1.6rem;
+	}
+
+	.mdText {
+		font-size: 2.1rem;
+	}
+
+	.mdBtn {
+		font-size: 1.7rem;
+	}
+
+	.contentFont {
+		color: #FFF;
+		font-family: 'Lobster Two', cursive;
+	}
+
+	.defFont {
+		color: #FFF;
+	}
+
+	.copyright {
+		font-size: 1.5rem;
+	}
+
+	#clusterMap {
+		width: 100%;
+		height: 400px;
+	}
+
+	#showPageMap {
+		width: 100%;
+		height: 400px;
+	}
+}
