@@ -1,4 +1,4 @@
-# Swingcars (English Version) v1.26.19
+# Swingcars (English Version) v1.26.22
 <br />
 
 ## Basic Root User Deployment Guide For App Evaluation
@@ -9,254 +9,283 @@
 <br />
 
 ### 2. Open a PowerShell (as Admin) terminal & connect to your SCdotNet server's IP address via SSH:
-`ssh root@enter.SCdotNet.IP.address`
-<br />
 
-**Enter the password provided by Vultr on the SCdotNet server page & follow all prompts until connected.**
-<br />
+```Bash
+ssh root@enter.SCdotNet.IP.address
+```
+
+- **Enter the password provided by Vultr on the SCdotNet server page & follow all prompts until connected.**
+
 <br />
 
 ### 3. Update Ubuntu OS:
-`sudo apt update && sudo apt upgrade -y`
-<br />
+
+```Bash
+sudo apt update && sudo apt upgrade -y
+```
+
 <br />
 
 ### 4. Enable & setup UFW Firewall:
-`sudo ufw enable`
-<br />
 
-`sudo ufw status`
-<br />
+```Bash
+sudo ufw enable
+```
 
-**It should display that the UFW Firewall is active.**
-<br />
+```Bash
+sudo ufw status
+```
 
-`sudo ufw allow ssh`
-<br />
+- **It should display that the UFW Firewall is active.**
 
-`sudo ufw allow http`
-<br />
+```Bash
+sudo ufw allow ssh
+```
 
-`sudo ufw allow https`
-<br />
+```Bash
+sudo ufw allow http
+```
 
-**Restart the SCdotNet server then reconnect via SSH (repeat step 2).**
-<br />
+```Bash
+sudo ufw allow https
+```
 
-`sudo reboot`
-<br />
+- **Restart the SCdotNet server then reconnect via SSH (repeat step 2).**
+
+```Bash
+sudo reboot
+```
+
 <br />
 
 ### 5. Install Node onto the server:
-`curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -`
-<br />
 
-`sudo apt install nodejs`
-<br />
+```Bash
+curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+```
 
-`npm --version`
-<br />
+```Bash
+sudo apt install nodejs
+```
 
-**The NPM version should be displayed.**
-<br />
+```Bash
+npm --version
+```
 
-`node --version`
-<br />
+- **The NPM version should be displayed.**
 
-**The Node version should be displayed.**
-<br />
+```Bash
+node --version
+```
+
+- **The Node version should be displayed.**
+
 <br />
 
 ### 6. Clone the SwingcarsDotNet GitHub repository to the SCdotNet server:
-`cd ~/`
-<br />
 
-`mkdir superkloklabs`
-<br />
+```Bash
+cd ~/
+```
 
-`cd superkloklabs`
-<br />
+```Bash
+mkdir superkloklabs
+```
 
-`git clone https://github.com/Superklok/SwingcarsDotNet.git`
-<br />
+```Bash
+cd superkloklabs
+```
+
+```Bash
+git clone https://github.com/Superklok/SwingcarsDotNet.git
+```
+
 <br />
 
 ### 7. Install dependencies:
-`cd SwingcarsDotNet/v1.x.x/`
-<br />
 
-`npm i`
-<br />
+```Bash
+cd SwingcarsDotNet/v1.x.x/
+```
+
+```Bash
+npm i
+```
+
 <br />
 
 ### 8. Start app using PM2:
-`npm i pm2 -g`
-<br />
 
-**Set environment variables:**
-<br />
+```Bash
+npm i pm2 -g
+```
 
-`cd ~/`
-<br />
+- **Set environment variables:**
 
-`nano .bashrc`
-<br />
+```Bash
+cd ~/
+```
 
-**Add the following to the top of the file:**
-<br />
+```Bash
+nano .bashrc
+```
 
-`export CLOUDINARY_CLOUD_NAME="YourCloudinaryCloudName"`
-<br />
+- **Add the following to the top of the file:**
 
-`export CLOUDINARY_KEY="YourCloudinaryKey"`
-<br />
+```Bash
+export CLOUDINARY_CLOUD_NAME="YourCloudinaryCloudName"
+```
 
-`export CLOUDINARY_SECRET="YourCloudinarySecret"`
-<br />
+```Bash
+export CLOUDINARY_KEY="YourCloudinaryKey"
+```
 
-`export SESSION_SECRET="YourSessionSecret"`
-<br />
+```Bash
+export CLOUDINARY_SECRET="YourCloudinarySecret"
+```
 
-`export MEMBER_CODE="YourMemberCode"`
-<br />
+```Bash
+export SESSION_SECRET="YourSessionSecret"
+```
 
-`export DB_URL="YourMongoDatabaseURL"`
-<br />
+```Bash
+export MEMBER_CODE="YourMemberCode"
+```
 
-`export PORT="ThePortSCdotNetIsRunningOn"`
-<br />
+```Bash
+export DB_URL="YourMongoDatabaseURL"
+```
 
-`export NODE_ENV="production"`
-<br />
+```Bash
+export PORT="ThePortSCdotNetIsRunningOn"
+```
 
-**Press ctrl+x & save changes, then refresh the user environment:**
-<br />
+```Bash
+export NODE_ENV="production"
+```
 
-`source .bashrc`
-<br />
+- **Press ctrl+x & save changes, then refresh the user environment:**
 
-**Double check that the new environment variables have been set correctly.**
-<br />
+```Bash
+source .bashrc
+```
 
-`env`
-<br />
+- **Double check that the new environment variables have been set correctly.**
 
-**Then start the app in cluster mode:**
-<br />
+```Bash
+env
+```
 
-`cd superkloklabs/SwingcarsDotNet/v1.x.x/`
-<br />
+- **Then start the app in cluster mode:**
 
-`pm2 start app.js --name "SCdotNet" -i max`
-<br />
+```Bash
+cd superkloklabs/SwingcarsDotNet/v1.x.x/
+```
+
+```Bash
+pm2 start app.js --name "SCdotNet" -i max
+```
+
 <br />
 
 ### 9. Setup a start script to automatically start the app if the SCdotNet server is restarted:
-`pm2 startup ubuntu`
-<br />
 
-`pm2 save`
-<br />
+```Bash
+pm2 startup ubuntu
+```
+
+```Bash
+pm2 save
+```
+
 <br />
 
 ### 10. Install & configure NGINX:
-`sudo apt install nginx`
-<br />
 
-`sudo nano /etc/nginx/sites-available/default`
-<br />
+```Bash
+sudo apt install nginx
+```
 
-**Add the following to the location part of the server block:**
-<br />
+```Bash
+sudo nano /etc/nginx/sites-available/default
+```
 
-`server_name yourwebsite.com www.yourwebsite.com;`
-<br />
+- **Add the following to the location part of the server block:**
 
-&nbsp;&nbsp;&nbsp;&nbsp;`location / {`
-<br />
+```JavaScript
+server_name yourwebsite.com www.yourwebsite.com;
+    location / {
+        proxy_pass http://localhost:ThePortSCdotNetIsRunningOn;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+```
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`proxy_pass http://localhost:ThePortSCdotNetIsRunningOn;`
-<br />
+- **Press ctrl+x & save changes.**
+- **Check NGINX config:**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`proxy_http_version 1.1;`
-<br />
+```Bash
+sudo nginx -t
+```
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`proxy_set_header Upgrade $http_upgrade;`
-<br />
+- **Restart NGINX:**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`proxy_set_header Connection 'upgrade';`
-<br />
+```Bash
+sudo service nginx restart
+```
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`proxy_set_header Host $host;`
-<br />
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`proxy_cache_bypass $http_upgrade;`
-<br />
-
-&nbsp;&nbsp;&nbsp;&nbsp;`}`
-<br />
-
-**Press ctrl+x & save changes.**
-<br />
-
-**Check NGINX config:**
-<br />
-
-`sudo nginx -t`
-<br />
-
-**Restart NGINX:**
-<br />
-
-`sudo service nginx restart`
-<br />
 <br />
 
 ### 11. Update your DNS "A" records for "yourwebsite.com" & "www.yourwebsite.com" with the SCdotNet server IP address.
 <br />
 
 ### 12. Setup SSL with LetsEncrypt:
-`sudo snap install core; sudo snap refresh core`
-<br />
 
-`sudo snap install --classic certbot`
-<br />
+```Bash
+sudo snap install core; sudo snap refresh core
+```
 
-`sudo ln -s /snap/bin/certbot /usr/bin/certbot`
-<br />
+```Bash
+sudo snap install --classic certbot
+```
 
-`sudo certbot --nginx -d yourwebsite.com -d www.yourwebsite.com`
-<br />
+```Bash
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+```
 
-**Enter your@email.com for the email address it requests, & select (y)es, then (n)o.**
-<br />
+```Bash
+sudo certbot --nginx -d yourwebsite.com -d www.yourwebsite.com
+```
 
-**Test the 90 day renewal process:**
-<br />
+- **Enter your@email.com for the email address it requests, & select (y)es, then (n)o.**
+- **Test the 90 day renewal process:**
 
-`certbot renew --dry-run`
-<br />
+```Bash
+certbot renew --dry-run
+```
 
-**Test the PM2 startup script by restarting the SCdotNet server:**
-<br />
+- **Test the PM2 startup script by restarting the SCdotNet server:**
 
-`sudo reboot`
-<br />
+```Bash
+sudo reboot
+```
 
-**Then reconnect to the SCdotNet server via SSH (repeat step 2).**
-<br />
+- **Then reconnect to the SCdotNet server via SSH (repeat step 2).**
+- **Check PM2 to make sure SCdotNet is still running in cluster mode:**
 
-**Check PM2 to make sure SCdotNet is still running in cluster mode:**
-<br />
+```Bash
+pm2 status
+```
 
-`pm2 status`
-<br />
+- **Logout of SSH:**
 
-**Logout of SSH:**
-<br />
+```Bash
+exit
+```
 
-`exit`
-<br />
 <br />
 <br />
 
