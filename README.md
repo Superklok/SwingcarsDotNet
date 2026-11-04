@@ -1,4 +1,4 @@
-# Swingcars (English Version) v1.26.25
+# Swingcars (English Version) v1.26.26
 <br />
 
 ## Basic Root User Deployment Guide For App Evaluation
@@ -309,7 +309,6 @@ exit
 [<img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white" />][docker] [<img src="https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white" />][nginx] [<img src="https://img.shields.io/static/v1?style=for-the-badge&message=Let%E2%80%99s+Encrypt&color=003A70&logo=Let%E2%80%99s+Encrypt&logoColor=FFFFFF&label=" />][letsencrypt] [<img src="https://img.shields.io/static/v1?style=for-the-badge&message=Vultr&color=007BFC&logo=Vultr&logoColor=FFFFFF&label=" />][vultr]
 
 <br />
-<br />
 
 [javascript]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 [css]: https://developer.mozilla.org/en-US/docs/Web/CSS
@@ -325,3 +324,7 @@ exit
 [nginx]: https://docs.nginx.com/
 [letsencrypt]: https://certbot.eff.org/
 [vultr]: https://www.vultr.com/
+
+---
+
+💡 *If you find this project useful, reach out via [Upwork](https://www.upwork.com/freelancers/~01a2b86360ffeb733e)/[Contra](https://contra.com/Superklok) to hire Superklok Labs today!*
